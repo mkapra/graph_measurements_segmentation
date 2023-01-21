@@ -1,0 +1,21 @@
+digraph {
+  pc1 -> pc8 [weight=1]
+  pc2 -> pc8 [weight=1]
+  pc3 -> pc8 [weight=1]
+  pc4 -> pc8 [weight=1]
+  pc5 -> pc8 [weight=1]
+  pc6 -> pc8 [weight=2]
+  pc7 -> pc8 [weight=2]
+  pc9 -> pc8 [weight=1]
+
+  pc8 -> db [weight=1]
+
+  pc7 -> pc1 [weight=1]
+  pc7 -> pc2 [weight=1]
+  pc7 -> pc3 [weight=1]
+  pc7 -> pc4 [weight=1]
+  pc7 -> pc5 [weight=1]
+  pc7 -> pc6 [weight=1]
+  pc7 -> pc9 [weight=1]
+  pc7 -> db [weight=1]
+}

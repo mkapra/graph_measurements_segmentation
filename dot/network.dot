@@ -1,0 +1,63 @@
+digraph {
+  pc1 -> s0 [weight=0]
+  s0 -> pc1 [weight=0]
+  pc2 -> s0 [weight=0]
+  s0 -> pc2 [weight=0]
+
+  pc3 -> s1 [weight=0]
+  s1 -> pc3 [weight=0]
+  pc4 -> s1 [weight=0]
+  s1 -> pc4 [weight=0]
+
+  pc5 -> s2 [weight=0]
+  s2 -> pc5 [weight=0]
+
+  pc6 -> s5 [weight=0]
+  s5 -> pc6 [weight=0]
+
+  pc7 -> s7 [weight=0]
+  s7 -> pc7 [weight=0]
+  pc8 -> s7 [weight=0]
+  s7 -> pc8 [weight=0]
+  pc8 -> db [weight=0]
+  db -> pc8 [weight=0]
+
+  pc9 -> s8 [weight=0]
+  s8 -> pc9 [weight=0]
+
+  s0 -> s2 [weight=0]
+  s2 -> s0 [weight=0]
+
+  s0 -> s3 [weight=0]
+  s3 -> s0 [weight=0]
+
+  s2 -> s3 [weight=0]
+  s3 -> s2 [weight=0]
+
+  s2 -> s1 [weight=0]
+  s1 -> s2 [weight=0]
+
+  s1 -> s3 [weight=0]
+  s3 -> s1 [weight=0]
+
+  s2 -> s4 [weight=0]
+  s4 -> s2 [weight=0]
+
+  s3 -> s4 [weight=0]
+  s4 -> s3 [weight=0]
+
+  s4 -> s5 [weight=0]
+  s5 -> s4 [weight=0]
+
+  s5 -> s6 [weight=0]
+  s6 -> s5 [weight=0]
+
+  s6 -> s7 [weight=0]
+  s7 -> s6 [weight=0]
+
+  s6 -> s8 [weight=0]
+  s8 -> s6 [weight=0]
+
+  s7 -> s8 [weight=0]
+  s8 -> s7 [weight=0]
+}

@@ -1,0 +1,22 @@
+# Access from all hosts to pc8 (HTTP)
+pc1 -> pc8
+pc2 -> pc8
+pc3 -> pc8
+pc4 -> pc8
+pc5 -> pc8
+pc6 -> pc8
+pc7 -> pc8
+pc9 -> pc8
+
+# Access from pc7 to all hosts (SSH)
+pc7 -> pc1
+pc7 -> pc2
+pc7 -> pc3
+pc7 -> pc4
+pc7 -> pc5
+pc7 -> pc6
+pc7 -> pc8
+pc7 -> pc9
+
+# Allow webserver to communicate with database
+pc8 -> db
