@@ -1,6 +1,55 @@
-import networkx as nx
-import matplotlib.pyplot as plt
 from dataclasses import dataclass
+from random import sample
+import copy
+import matplotlib.pyplot as plt
+import networkx as nx
+import random
+
+
+def calc_diff(first, second):
+    if first == 0:
+        return 0
+    return round(((second/first) - 1) * 100, 5)
+
+
+def print_res(name, before, after):
+    diff = calc_diff(before, after)
+    print(f"[{name}] Before: {before}, After: {after} => {diff}%")
+
+
+def before_after_calculations(before_msg, after_msg, G_before, G_after, print_calc=False):
+    calcs = {
+        'before': {
+            'enice': G_before.enice(),
+            'tinr': G_before.tinr(),
+            'avod': G_before.avod(),
+            'ac': G_before.ac(),
+            'clustercoeff': nx.transitivity(G_before),
+        },
+        'after': {
+            'enice': G_after.enice(),
+            'tinr': G_after.tinr(),
+            'avod': G_after.avod(),
+            'ac': G_after.ac(),
+            'clustercoeff': nx.transitivity(G_after),
+        },
+    }
+
+    if not print_calc:
+        return calcs
+
+    print(f"\nBefore: {before_msg}, After: {after_msg}")
+    print_res('ENICE', calcs['before']['enice'], calcs['after']['enice'])
+    print_res(
+        'Clustering coefficient',
+        calcs['before']['clustercoeff'],
+        calcs['after']['clustercoeff']
+    )
+    print_res('TINR', calcs['before']['tinr'], calcs['after']['tinr'])
+    print_res('AVOD', calcs['before']['avod'], calcs['after']['avod'])
+    print_res('AC', calcs['before']['ac'], calcs['after']['ac'])
+
+    return calcs
 
 
 @dataclass
@@ -11,9 +60,42 @@ class Rule:
 
 
 class DiGraph(nx.DiGraph):
+    def remove_zero_edges(self):
+        G = copy.deepcopy(self)
+        edges = [(src, dst) for src, dst, attrs in G.edges(data=True) if attrs["weight"] == 0]
+        le_ids = list(e[:2] for e in edges)
+        G.remove_edges_from(le_ids)
+        return G
+
+    def simulate_traffic(self, amount_of_traffic=10, amount_of_attacks=1, rand_ports=[]):
+        for src_node, dst_node in self.edges():
+            nx.set_edge_attributes(self, {(src_node, dst_node): {"weight": 0}})
+
+        nodes = []
+        for i in range(amount_of_traffic):
+            first, second = sample(list(self.nodes()), 2)
+            nodes.append((first, second))
+            if len(rand_ports) == 0:
+                self.apply_rules([Rule(first, second, random.randrange(1, 65535))])
+            else:
+                self.apply_rules([Rule(first, second, sample(rand_ports, 1)[0])])
+
+        self = self.remove_zero_edges()
+
+        G_after = copy.deepcopy(self)
+        for i in range(amount_of_attacks):
+            rand_nodes = sample(nodes, 1)[0]
+            G_after.apply_rules([Rule(rand_nodes[0], rand_nodes[1], -1)])
+
+        return self, G_after
+
     @staticmethod
     def from_dot(filename):
         return DiGraph(nx.nx_pydot.read_dot(filename))
+
+    @staticmethod
+    def from_graphml(filename):
+        return DiGraph(nx.read_graphml(filename))
 
     def apply_rules_from_file(self, filename):
         with open(filename, 'r') as fh:
@@ -81,9 +163,12 @@ class DiGraph(nx.DiGraph):
         def calc(len_nodes, out_degrees):
             return (1/len_nodes) * sum(out_degrees)
 
+        G = copy.deepcopy(self)
+        G.remove_zero_edges()
+
         return calc(
-                len(self.nodes()),
-                [out for (n, out) in list(self.out_degree())]
+                len(G.nodes()),
+                [out for (n, out) in list(G.out_degree())]
         )
 
     def ac(self):
