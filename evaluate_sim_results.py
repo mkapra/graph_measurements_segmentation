@@ -6,15 +6,17 @@ from math import sqrt
 
 from graph import calc_diff
 
+RESULT_FILENAME = 'networks_simulation_results_realistic.json'
+
 
 def parse_json():
-    with open('tmp/networks_simulation_results_correct.json.2') as fh:
+    with open(f"tmp/{RESULT_FILENAME}") as fh:
         return json.loads(fh.read())
 
 
 def calc_enice(results):
     enice = [
-        (result['before']['enice'], result['after']['enice'])
+        (result[0]['before']['enice'], result[0]['after']['enice'])
         for result in results
     ]
     mean_enice = mean([after - before for before, after in enice])

@@ -52,8 +52,8 @@ digraph {
   clientlaptop4 -> rtrwlan [weight=0]
   rtrwlan -> clientlaptop4 [weight=0]
 
-  rtrwlan -> gateway
-  gateway -> rtrwlan
+  rtrwlan -> gateway [weight=0]
+  gateway -> rtrwlan [weight=0]
 
   /* sub1 */
   client1sub1 -> server1sub1 [weight=0]
