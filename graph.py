@@ -7,17 +7,27 @@ import random
 
 
 def calc_diff(first, second):
+    """Returns the procentual change between first and second.
+    """
     if first == 0:
         return 0
     return round(((second/first) - 1) * 100, 5)
 
 
 def print_res(name, before, after):
+    """Prints a given metric with a before and after value
+    """
     diff = calc_diff(before, after)
     print(f"[{name}] Before: {before}, After: {after} => {diff}%")
 
 
-def before_after_calculations(before_msg, after_msg, G_before, G_after, print_calc=False):
+def before_after_calculations(graph_desc_before,
+                              graph_desc_after,
+                              G_before,
+                              G_after,
+                              print_calc=False):
+    """Calculate different metrics for two graphs (before and after simulation)
+    """
     calcs = {
         'before': {
             'enice': G_before.enice(),
@@ -38,7 +48,7 @@ def before_after_calculations(before_msg, after_msg, G_before, G_after, print_ca
     if not print_calc:
         return calcs
 
-    print(f"\nBefore: {before_msg}, After: {after_msg}")
+    print(f"\nBefore: {graph_desc_before}, After: {graph_desc_after}")
     print_res('ENICE', calcs['before']['enice'], calcs['after']['enice'])
     print_res(
         'Clustering coefficient',
@@ -56,38 +66,81 @@ def before_after_calculations(before_msg, after_msg, G_before, G_after, print_ca
 class Rule:
     src: str
     dst: str
+    # Amount of services that are allowed between src and dst
     amount_services: int
 
 
 class DiGraph(nx.DiGraph):
     def remove_zero_edges(self):
+        """Removes all edges from the graph with weight == 0 and returns it
+        """
         G = copy.deepcopy(self)
-        edges = [(src, dst) for src, dst, attrs in G.edges(data=True) if attrs["weight"] == 0]
+        edges = [
+            (src, dst) for src, dst, attrs in G.edges(data=True)
+            if int(attrs["weight"]) == 0
+        ]
         le_ids = list(e[:2] for e in edges)
         G.remove_edges_from(le_ids)
         return G
 
-    def simulate_traffic(self, amount_of_traffic=10, amount_of_attacks=1, rand_ports=[]):
+    def simulate_traffic(self,
+                         amount_of_rules=10,
+                         amount_of_attacks=1,
+                         rand_ports=[]):
+        """Simulates random rules on a given network graph
+
+        Parameters
+        ----------
+        amount_of_rules : int
+            This number controls the number of paths that are randomly picked
+            in the given graph.
+        amount_of_attacks : int
+            Defines the number of attacks that should be simulated. One attack
+            reduces the weights on the paths between the two random picked
+            nodes by one.
+        rand_ports : [int]
+            In each iteration of amount_of_rules there is generated a random
+            number which is added to the weights of the edges between the
+            random selected nodes. When comparing two graphs it may be
+            interesting to test with the same amount of allowed services in the
+            network. Because of that this parameter allows to pass some weights
+            generated beforehand.
+        """
+        stats = dict()
+        stats['before'] = {}
+        stats['after'] = {}
+        stats['attack'] = {}
         for src_node, dst_node in self.edges():
             nx.set_edge_attributes(self, {(src_node, dst_node): {"weight": 0}})
 
         nodes = []
-        for i in range(amount_of_traffic):
+        for i in range(amount_of_rules):
             first, second = sample(list(self.nodes()), 2)
             nodes.append((first, second))
             if len(rand_ports) == 0:
-                self.apply_rules([Rule(first, second, random.randrange(1, 65535))])
+                self.apply_rules([
+                    Rule(first, second, random.randrange(1, 65535))
+                ])
             else:
-                self.apply_rules([Rule(first, second, sample(rand_ports, 1)[0])])
-
+                self.apply_rules([
+                    Rule(first, second, sample(rand_ports, 1)[0])
+                ])
+        stats['traffic_nodes'] = nodes
+        stats['before']['edgecount_with_zero'] = len(self.edges())
         self = self.remove_zero_edges()
+        stats['before']['edgecount'] = len(self.edges())
 
         G_after = copy.deepcopy(self)
         for i in range(amount_of_attacks):
             rand_nodes = sample(nodes, 1)[0]
+            stats['attack']['src'] = rand_nodes[0]
+            stats['attack']['dst'] = rand_nodes[1]
             G_after.apply_rules([Rule(rand_nodes[0], rand_nodes[1], -1)])
 
-        return self, G_after
+        stats['after']['edgecount_with_zero'] = len(self.edges())
+        G_after = G_after.remove_zero_edges()
+        stats['after']['edgecount'] = len(G_after.edges())
+        return self, G_after, stats
 
     @staticmethod
     def from_dot(filename):
@@ -98,6 +151,15 @@ class DiGraph(nx.DiGraph):
         return DiGraph(nx.read_graphml(filename))
 
     def apply_rules_from_file(self, filename):
+        """Wrapper for parsing rules from a file and applying them to the graph
+
+        The file is parsed line by line. A line should have the following
+        format:
+            # xxx - comment
+            pc1 -> pc2 - One connection between pc1 and pc2 is allowed
+            pc1 -> pc2 : 1234 - 1234 connections between pc1 and pc2 are
+                                allowed
+        """
         with open(filename, 'r') as fh:
             lines = [line.rstrip() for line in fh]
 
@@ -109,7 +171,9 @@ class DiGraph(nx.DiGraph):
             try:
                 from_node, rest = line.split(' -> ')
                 to_node, weight = rest.split(':')
-                rules.append(Rule(from_node, to_node.rstrip(), int(weight.rstrip())))
+                rules.append(
+                    Rule(from_node, to_node.rstrip(), int(weight.rstrip()))
+                )
             except Exception:
                 rules.append(Rule(*line.split(' -> '), 1))
 

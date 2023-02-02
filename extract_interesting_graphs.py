@@ -4,15 +4,12 @@ import os
 
 from graph import DiGraph
 
-# Pfad zum Ordner GraphML
-path = 'graphml'
+# List of files in the graphml folder
+files = os.listdir('graphml')
 
-# Liste aller Dateien im Ordner GraphML
-files = os.listdir(path)
-
+# Created graphs
 graphs = []
 
-# Durchlaufe alle Dateien und gebe sie aus
 for file in files:
     if not file.endswith(".graphml"):
         continue
@@ -23,9 +20,10 @@ for file in files:
         print(f"Error for {file}: {e}")
 
 for n, g in graphs:
+    # Criteria which graphs are not extracted to be used for simulation
     if len(g.nodes()) > 50:
         continue
 
     print(f"[{n}] nodes={len(g.nodes())}, edges={len(g.edges())}")
-    # with open('tmp/interesting_graphs.txt', 'a') as fh:
-    #     fh.write(f"{n}\n")
+    with open('tmp/interesting_graphs.txt', 'a') as fh:
+        fh.write(f"{n}\n")

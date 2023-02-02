@@ -16,15 +16,20 @@ def read_graphml_files():
 def process_graph(name, G, results):
     print(f"-- Processing graph {name}")
     rand_ports = [random.randrange(1, 65535) for i in range(50)]
-    G_simulation, G_attack = G.simulate_traffic(amount_of_traffic=50, rand_ports=rand_ports)
+    G_simulation, G_attack, stats = G.simulate_traffic(amount_of_rules=50, rand_ports=rand_ports)
     print("Finished processing")
 
-    results.append(before_after_calculations(
-        f"{name} simulated",
-        f"{name} simulated + attack",
-        G_simulation,
-        G_attack
-    ))
+    results.append(
+        (
+            before_after_calculations(
+                f"{name} simulated",
+                f"{name} simulated + attack",
+                G_simulation,
+                G_attack
+            ),
+            stats
+        )
+    )
 
 
 def main():
