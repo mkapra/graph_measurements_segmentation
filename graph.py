@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from itertools import product
 from random import sample
 import copy
 import matplotlib.pyplot as plt
@@ -35,6 +36,8 @@ def before_after_calculations(graph_desc_before,
             'avod': G_before.avod(),
             'ac': G_before.ac(),
             'clustercoeff': nx.transitivity(G_before),
+            'cd': G_before.cd(),
+            'mpl': G_before.mpl(),
         },
         'after': {
             'enice': G_after.enice(),
@@ -42,6 +45,8 @@ def before_after_calculations(graph_desc_before,
             'avod': G_after.avod(),
             'ac': G_after.ac(),
             'clustercoeff': nx.transitivity(G_after),
+            'cd': G_after.cd(),
+            'mpl': G_after.mpl(),
         },
     }
 
@@ -58,6 +63,8 @@ def before_after_calculations(graph_desc_before,
     print_res('TINR', calcs['before']['tinr'], calcs['after']['tinr'])
     print_res('AVOD', calcs['before']['avod'], calcs['after']['avod'])
     print_res('AC', calcs['before']['ac'], calcs['after']['ac'])
+    print_res('CD', calcs['before']['cd'], calcs['after']['cd'])
+    print_res('MPL', calcs['before']['mpl'], calcs['after']['mpl'])
 
     return calcs
 
@@ -220,9 +227,10 @@ class DiGraph(nx.DiGraph):
         return DiGraph._sum_weights(self)
 
     def mpl(self):
-        """Mean of shortest paths
+        """Mean of shortest path lengths
         """
-        pass
+        paths = self.lsp()
+        return (1/len(paths)) * sum([len(path) for path in paths])
 
     def tinr(self):
         """Transitive Internal Network Reachability
@@ -244,23 +252,47 @@ class DiGraph(nx.DiGraph):
         )
 
     def ac(self):
-        """Average closeness
+        """Average Closeness
         """
-        def cl(start_node):
-            sum_vertices_between = 0
-            for end in list(filter(lambda n: start_node != n, self.nodes)):
-                try:
-                    sum_vertices_between += \
-                        len([nx.shortest_path(self, start_node, end)][0]) - 2
-                except nx.exception.NetworkXNoPath:
-                    pass
+        return (1/len(self.nodes())) * sum([self.cl(node) for node in self.nodes()])
 
-            if sum_vertices_between == 0:
-                return 0
+    def cl(self, src_node):
+        """Closeness centrality
+        """
+        all_nodes = [node for node in self.nodes()]
+        node_lens = []
+        for node in all_nodes:
+            if node == self.nodes(node):
+                continue
 
-            return 1 / sum_vertices_between
+            try:
+                node_lens.append(
+                    len(nx.shortest_path(self, source=src_node, target=node))
+                )
+            except nx.exception.NetworkXNoPath:
+                continue
 
-        return 1/len(self.nodes) * sum([cl(n) for n in self.nodes])
+            return 1/sum(node_lens)
+
+    def cd(self):
+        """Connectivity Graph Diameter
+        """
+        return len(max(self.lsp(), key=lambda k: len(k)))
+
+    def lsp(self):
+        """List of shortest paths
+        """
+        shortest_paths = []
+        for x, y in product(self.nodes(), repeat=2):
+            if x == y:
+                continue
+            try:
+                shortest_paths.append(
+                    nx.shortest_path(self, source=x, target=y)
+                )
+            except nx.exception.NetworkXNoPath:
+                continue
+        return shortest_paths
 
     def draw_to_svg(self):
         """Saves the graph to a svg file
