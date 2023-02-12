@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
 from graph import DiGraph, before_after_calculations
+import os
 import json
 import threading
 import random
+from datetime import date
 
 
 def read_graphml_files():
@@ -47,8 +49,16 @@ def main():
     for thread in thread_list:
         thread.join()
 
+    filename = f"networks_simulation_results_{date.today()}.json"
+
+    # Überprüfen, ob Datei bereits existiert
+    i = 0
+    while os.path.isfile(filename):
+        i += 1
+        filename = f"networks_simulation_results_{date.today()}.{i}.json"
+
     # results = [process_graph(name, graph) for name, graph in graphs]
-    with open('tmp/networks_simulation_results_realistic.json', 'a') as fh:
+    with open(f"tmp/{filename}", 'a') as fh:
         fh.write(json.dumps(results))
 
 

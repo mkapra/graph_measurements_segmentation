@@ -6,7 +6,8 @@ from math import sqrt
 
 from graph import calc_diff
 
-RESULT_FILENAME = 'networks_simulation_results_realistic.json'
+
+RESULT_FILENAME = 'networks_simulation_results.json'
 
 
 def parse_json():
