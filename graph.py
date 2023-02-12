@@ -189,13 +189,16 @@ class DiGraph(nx.DiGraph):
 
         for rule in rules:
             applied_paths = []
+            applied_rev_paths = []
             paths = list(nx.all_simple_paths(self, rule.src, rule.dst))
-            for path in paths:
-                for i, node in enumerate(path):
+            reverse_paths = [path[::-1] for path in paths]
+            for path, reverse_path in zip(paths, reverse_paths):
+                for i, (node, rev_node) in enumerate(zip(path, reverse_path)):
                     if i == len(path) - 1:
                         break
 
                     to_node = path[i + 1]
+                    to_rev_node = reverse_path[i + 1]
 
                     # Do not count up the weight on a edge twice if the
                     # different paths have similar partial paths
@@ -203,6 +206,11 @@ class DiGraph(nx.DiGraph):
                         applied_paths.append((node, to_node))
                         self[node][to_node]['weight'] = \
                             str(int(self[node][to_node]['weight']) + rule.amount_services)
+
+                    if (rev_node, to_rev_node) not in applied_rev_paths:
+                        applied_rev_paths.append((rev_node, to_rev_node))
+                        self[rev_node][to_rev_node]['weight'] = \
+                            str(int(self[rev_node][to_rev_node]['weight']) + rule.amount_services)
 
         return self
 
