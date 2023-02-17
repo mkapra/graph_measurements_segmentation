@@ -235,7 +235,9 @@ class DiGraph(nx.DiGraph):
     def tinr(self):
         """Transitive Internal Network Reachability
         """
-        return DiGraph._sum_weights(nx.transitive_closure(self))
+        g = self.remove_zero_edges()
+        transitive_graph = nx.transitive_closure(g, reflexive=None)
+        return len(transitive_graph.edges())
 
     def avod(self):
         """Average Out-Degree
