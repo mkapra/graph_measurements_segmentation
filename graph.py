@@ -136,6 +136,7 @@ class DiGraph(nx.DiGraph):
         stats['before']['edgecount_with_zero'] = len(self.edges())
         self = self.remove_zero_edges()
         stats['before']['edgecount'] = len(self.edges())
+        stats['before']['edges'] = self.edges(data=True)
 
         G_after = copy.deepcopy(self)
         for i in range(amount_of_attacks):
@@ -147,6 +148,7 @@ class DiGraph(nx.DiGraph):
         stats['after']['edgecount_with_zero'] = len(self.edges())
         G_after = G_after.remove_zero_edges()
         stats['after']['edgecount'] = len(G_after.edges())
+        stats['before']['edges'] = G_after.edges(data=True)
         return self, G_after, stats
 
     @staticmethod

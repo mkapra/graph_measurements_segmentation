@@ -27,6 +27,9 @@ digraph {
   swdmz -> gateway [weight=0]
   gateway -> swdmz [weight=0]
 
+  gateway -> internet [weight=0]
+  internet -> gateway [weight=0]
+
   /* Clients */
   clientpc1 -> rtrwlan [weight=0]
   rtrwlan -> clientpc1 [weight=0]
@@ -56,458 +59,290 @@ digraph {
   gateway -> rtrwlan [weight=0]
 
   /* sub1 */
-  client1sub1 -> server1sub1 [weight=0]
-  server1sub1 -> client1sub1 [weight=0]
+  client1sub1 -> swsub1 [weight=0]
+  swsub1 -> client1sub1 [weight=0]
+  client2sub1 -> swsub1 [weight=0]
+  swsub1 -> client2sub1 [weight=0]
 
-  client2sub1 -> server1sub1 [weight=0]
-  server1sub1 -> client2sub1 [weight=0]
+  server1sub1 -> swsub1 [weight=0]
+  swsub1 -> server1sub1 [weight=0]
 
-  client1sub1 -> gateway [weight=0]
-  gateway -> client1sub1 [weight=0]
-
-  client2sub1 -> gateway [weight=0]
-  gateway -> client2sub1 [weight=0]
-
-  server1sub1 -> gateway [weight=0]
-  gateway -> server1sub1 [weight=0]
-
-  server2sub1 -> gateway [weight=0]
-  gateway -> server2sub1 [weight=0]
+  swsub1 -> gateway [weight=0]
+  gateway -> swsub1 [weight=0]
 
   /* sub2 */
-  client1sub2 -> server1sub2 [weight=0]
-  server1sub2 -> client1sub2 [weight=0]
+  client1sub2 -> swsub2 [weight=0]
+  swsub2 -> client1sub2 [weight=0]
+  client2sub2 -> swsub2 [weight=0]
+  swsub2 -> client2sub2 [weight=0]
 
-  client2sub2 -> server1sub2 [weight=0]
-  server1sub2 -> client2sub2 [weight=0]
+  server1sub2 -> swsub2 [weight=0]
+  swsub2 -> server1sub2 [weight=0]
 
-  client1sub2 -> gateway [weight=0]
-  gateway -> client1sub2 [weight=0]
-
-  client2sub2 -> gateway [weight=0]
-  gateway -> client2sub2 [weight=0]
-
-  server1sub2 -> gateway [weight=0]
-  gateway -> server1sub2 [weight=0]
-
-  server2sub2 -> gateway [weight=0]
-  gateway -> server2sub2 [weight=0]
+  swsub2 -> gateway [weight=0]
+  gateway -> swsub2 [weight=0]
 
   /* sub3 */
-  client1sub3 -> server1sub3 [weight=0]
-  server1sub3 -> client1sub3 [weight=0]
+  client1sub3 -> swsub3 [weight=0]
+  swsub3 -> client1sub3 [weight=0]
+  client2sub3 -> swsub3 [weight=0]
+  swsub3 -> client2sub3 [weight=0]
 
-  client2sub3 -> server1sub3 [weight=0]
-  server1sub3 -> client2sub3 [weight=0]
+  server1sub3 -> swsub3 [weight=0]
+  swsub3 -> server1sub3 [weight=0]
 
-  client1sub3 -> gateway [weight=0]
-  gateway -> client1sub3 [weight=0]
-
-  client2sub3 -> gateway [weight=0]
-  gateway -> client2sub3 [weight=0]
-
-  server1sub3 -> gateway [weight=0]
-  gateway -> server1sub3 [weight=0]
-
-  server2sub3 -> gateway [weight=0]
-  gateway -> server2sub3 [weight=0]
+  swsub3 -> gateway [weight=0]
+  gateway -> swsub3 [weight=0]
 
   /* sub4 */
-  client1sub4 -> server1sub4 [weight=0]
-  server1sub4 -> client1sub4 [weight=0]
+  client1sub4 -> swsub4 [weight=0]
+  swsub4 -> client1sub4 [weight=0]
+  client2sub4 -> swsub4 [weight=0]
+  swsub4 -> client2sub4 [weight=0]
 
-  client2sub4 -> server1sub4 [weight=0]
-  server1sub4 -> client2sub4 [weight=0]
+  server1sub4 -> swsub4 [weight=0]
+  swsub4 -> server1sub4 [weight=0]
 
-  client1sub4 -> gateway [weight=0]
-  gateway -> client1sub4 [weight=0]
-
-  client2sub4 -> gateway [weight=0]
-  gateway -> client2sub4 [weight=0]
-
-  server1sub4 -> gateway [weight=0]
-  gateway -> server1sub4 [weight=0]
-
-  server2sub4 -> gateway [weight=0]
-  gateway -> server2sub4 [weight=0]
+  swsub4 -> gateway [weight=0]
+  gateway -> swsub4 [weight=0]
 
   /* sub5 */
-  client1sub5 -> server1sub5 [weight=0]
-  server1sub5 -> client1sub5 [weight=0]
+  client1sub5 -> swsub5 [weight=0]
+  swsub5 -> client1sub5 [weight=0]
+  client2sub5 -> swsub5 [weight=0]
+  swsub5 -> client2sub5 [weight=0]
 
-  client2sub5 -> server1sub5 [weight=0]
-  server1sub5 -> client2sub5 [weight=0]
+  server1sub5 -> swsub5 [weight=0]
+  swsub5 -> server1sub5 [weight=0]
 
-  client1sub5 -> gateway [weight=0]
-  gateway -> client1sub5 [weight=0]
-
-  client2sub5 -> gateway [weight=0]
-  gateway -> client2sub5 [weight=0]
-
-  server1sub5 -> gateway [weight=0]
-  gateway -> server1sub5 [weight=0]
-
-  server2sub5 -> gateway [weight=0]
-  gateway -> server2sub5 [weight=0]
+  swsub5 -> gateway [weight=0]
+  gateway -> swsub5 [weight=0]
 
   /* sub6 */
-  client1sub6 -> server1sub6 [weight=0]
-  server1sub6 -> client1sub6 [weight=0]
+  client1sub6 -> swsub6 [weight=0]
+  swsub6 -> client1sub6 [weight=0]
+  client2sub6 -> swsub6 [weight=0]
+  swsub6 -> client2sub6 [weight=0]
 
-  client2sub6 -> server1sub6 [weight=0]
-  server1sub6 -> client2sub6 [weight=0]
+  server1sub6 -> swsub6 [weight=0]
+  swsub6 -> server1sub6 [weight=0]
 
-  client1sub6 -> gateway [weight=0]
-  gateway -> client1sub6 [weight=0]
-
-  client2sub6 -> gateway [weight=0]
-  gateway -> client2sub6 [weight=0]
-
-  server1sub6 -> gateway [weight=0]
-  gateway -> server1sub6 [weight=0]
-
-  server2sub6 -> gateway [weight=0]
-  gateway -> server2sub6 [weight=0]
+  swsub6 -> gateway [weight=0]
+  gateway -> swsub6 [weight=0]
 
   /* sub7 */
-  client1sub7 -> server1sub7 [weight=0]
-  server1sub7 -> client1sub7 [weight=0]
+  client1sub7 -> swsub7 [weight=0]
+  swsub7 -> client1sub7 [weight=0]
+  client2sub7 -> swsub7 [weight=0]
+  swsub7 -> client2sub7 [weight=0]
 
-  client2sub7 -> server1sub7 [weight=0]
-  server1sub7 -> client2sub7 [weight=0]
+  server1sub7 -> swsub7 [weight=0]
+  swsub7 -> server1sub7 [weight=0]
 
-  client1sub7 -> gateway [weight=0]
-  gateway -> client1sub7 [weight=0]
-
-  client2sub7 -> gateway [weight=0]
-  gateway -> client2sub7 [weight=0]
-
-  server1sub7 -> gateway [weight=0]
-  gateway -> server1sub7 [weight=0]
-
-  server2sub7 -> gateway [weight=0]
-  gateway -> server2sub7 [weight=0]
+  swsub7 -> gateway [weight=0]
+  gateway -> swsub7 [weight=0]
 
   /* sub8 */
-  client1sub8 -> server1sub8 [weight=0]
-  server1sub8 -> client1sub8 [weight=0]
+  client1sub8 -> swsub8 [weight=0]
+  swsub8 -> client1sub8 [weight=0]
+  client2sub8 -> swsub8 [weight=0]
+  swsub8 -> client2sub8 [weight=0]
 
-  client2sub8 -> server1sub8 [weight=0]
-  server1sub8 -> client2sub8 [weight=0]
+  server1sub8 -> swsub8 [weight=0]
+  swsub8 -> server1sub8 [weight=0]
 
-  client1sub8 -> gateway [weight=0]
-  gateway -> client1sub8 [weight=0]
-
-  client2sub8 -> gateway [weight=0]
-  gateway -> client2sub8 [weight=0]
-
-  server1sub8 -> gateway [weight=0]
-  gateway -> server1sub8 [weight=0]
-
-  server2sub8 -> gateway [weight=0]
-  gateway -> server2sub8 [weight=0]
+  swsub8 -> gateway [weight=0]
+  gateway -> swsub8 [weight=0]
 
   /* sub9 */
-  client1sub9 -> server1sub9 [weight=0]
-  server1sub9 -> client1sub9 [weight=0]
+  client1sub9 -> swsub9 [weight=0]
+  swsub9 -> client1sub9 [weight=0]
+  client2sub9 -> swsub9 [weight=0]
+  swsub9 -> client2sub9 [weight=0]
 
-  client2sub9 -> server1sub9 [weight=0]
-  server1sub9 -> client2sub9 [weight=0]
+  server1sub9 -> swsub9 [weight=0]
+  swsub9 -> server1sub9 [weight=0]
 
-  client1sub9 -> gateway [weight=0]
-  gateway -> client1sub9 [weight=0]
-
-  client2sub9 -> gateway [weight=0]
-  gateway -> client2sub9 [weight=0]
-
-  server1sub9 -> gateway [weight=0]
-  gateway -> server1sub9 [weight=0]
-
-  server2sub9 -> gateway [weight=0]
-  gateway -> server2sub9 [weight=0]
+  swsub9 -> gateway [weight=0]
+  gateway -> swsub9 [weight=0]
 
   /* sub10 */
-  client1sub10 -> server1sub10 [weight=0]
-  server1sub10 -> client1sub10 [weight=0]
+  client1sub10 -> swsub10 [weight=0]
+  swsub10 -> client1sub10 [weight=0]
+  client2sub10 -> swsub10 [weight=0]
+  swsub10 -> client2sub10 [weight=0]
 
-  client2sub10 -> server1sub10 [weight=0]
-  server1sub10 -> client2sub10 [weight=0]
+  server1sub10 -> swsub10 [weight=0]
+  swsub10 -> server1sub10 [weight=0]
 
-  client1sub10 -> gateway [weight=0]
-  gateway -> client1sub10 [weight=0]
-
-  client2sub10 -> gateway [weight=0]
-  gateway -> client2sub10 [weight=0]
-
-  server1sub10 -> gateway [weight=0]
-  gateway -> server1sub10 [weight=0]
-
-  server2sub10 -> gateway [weight=0]
-  gateway -> server2sub10 [weight=0]
+  swsub10 -> gateway [weight=0]
+  gateway -> swsub10 [weight=0]
 
   /* sub11 */
-  client1sub11 -> server1sub11 [weight=0]
-  server1sub11 -> client1sub11 [weight=0]
+  client1sub11 -> swsub11 [weight=0]
+  swsub11 -> client1sub11 [weight=0]
+  client2sub11 -> swsub11 [weight=0]
+  swsub11 -> client2sub11 [weight=0]
 
-  client2sub11 -> server1sub11 [weight=0]
-  server1sub11 -> client2sub11 [weight=0]
+  server1sub11 -> swsub11 [weight=0]
+  swsub11 -> server1sub11 [weight=0]
 
-  client1sub11 -> gateway [weight=0]
-  gateway -> client1sub11 [weight=0]
-
-  client2sub11 -> gateway [weight=0]
-  gateway -> client2sub11 [weight=0]
-
-  server1sub11 -> gateway [weight=0]
-  gateway -> server1sub11 [weight=0]
-
-  server2sub11 -> gateway [weight=0]
-  gateway -> server2sub11 [weight=0]
+  swsub11 -> gateway [weight=0]
+  gateway -> swsub11 [weight=0]
 
   /* sub12 */
-  client1sub12 -> server1sub12 [weight=0]
-  server1sub12 -> client1sub12 [weight=0]
+  client1sub12 -> swsub12 [weight=0]
+  swsub12 -> client1sub12 [weight=0]
+  client2sub12 -> swsub12 [weight=0]
+  swsub12 -> client2sub12 [weight=0]
 
-  client2sub12 -> server1sub12 [weight=0]
-  server1sub12 -> client2sub12 [weight=0]
+  server1sub12 -> swsub12 [weight=0]
+  swsub12 -> server1sub12 [weight=0]
 
-  client1sub12 -> gateway [weight=0]
-  gateway -> client1sub12 [weight=0]
-
-  client2sub12 -> gateway [weight=0]
-  gateway -> client2sub12 [weight=0]
-
-  server1sub12 -> gateway [weight=0]
-  gateway -> server1sub12 [weight=0]
-
-  server2sub12 -> gateway [weight=0]
-  gateway -> server2sub12 [weight=0]
+  swsub12 -> gateway [weight=0]
+  gateway -> swsub12 [weight=0]
 
   /* sub13 */
-  client1sub13 -> server1sub13 [weight=0]
-  server1sub13 -> client1sub13 [weight=0]
+  client1sub13 -> swsub13 [weight=0]
+  swsub13 -> client1sub13 [weight=0]
+  client2sub13 -> swsub13 [weight=0]
+  swsub13 -> client2sub13 [weight=0]
 
-  client2sub13 -> server1sub13 [weight=0]
-  server1sub13 -> client2sub13 [weight=0]
+  server1sub13 -> swsub13 [weight=0]
+  swsub13 -> server1sub13 [weight=0]
 
-  client1sub13 -> gateway [weight=0]
-  gateway -> client1sub13 [weight=0]
-
-  client2sub13 -> gateway [weight=0]
-  gateway -> client2sub13 [weight=0]
-
-  server1sub13 -> gateway [weight=0]
-  gateway -> server1sub13 [weight=0]
-
-  server2sub13 -> gateway [weight=0]
-  gateway -> server2sub13 [weight=0]
+  swsub13 -> gateway [weight=0]
+  gateway -> swsub13 [weight=0]
 
   /* sub14 */
-  client1sub14 -> server1sub14 [weight=0]
-  server1sub14 -> client1sub14 [weight=0]
+  client1sub14 -> swsub14 [weight=0]
+  swsub14 -> client1sub14 [weight=0]
+  client2sub14 -> swsub14 [weight=0]
+  swsub14 -> client2sub14 [weight=0]
 
-  client2sub14 -> server1sub14 [weight=0]
-  server1sub14 -> client2sub14 [weight=0]
+  server1sub14 -> swsub14 [weight=0]
+  swsub14 -> server1sub14 [weight=0]
 
-  client1sub14 -> gateway [weight=0]
-  gateway -> client1sub14 [weight=0]
-
-  client2sub14 -> gateway [weight=0]
-  gateway -> client2sub14 [weight=0]
-
-  server1sub14 -> gateway [weight=0]
-  gateway -> server1sub14 [weight=0]
-
-  server2sub14 -> gateway [weight=0]
-  gateway -> server2sub14 [weight=0]
+  swsub14 -> gateway [weight=0]
+  gateway -> swsub14 [weight=0]
 
   /* sub15 */
-  client1sub15 -> server1sub15 [weight=0]
-  server1sub15 -> client1sub15 [weight=0]
+  client1sub15 -> swsub15 [weight=0]
+  swsub15 -> client1sub15 [weight=0]
+  client2sub15 -> swsub15 [weight=0]
+  swsub15 -> client2sub15 [weight=0]
 
-  client2sub15 -> server1sub15 [weight=0]
-  server1sub15 -> client2sub15 [weight=0]
+  server1sub15 -> swsub15 [weight=0]
+  swsub15 -> server1sub15 [weight=0]
 
-  client1sub15 -> gateway [weight=0]
-  gateway -> client1sub15 [weight=0]
-
-  client2sub15 -> gateway [weight=0]
-  gateway -> client2sub15 [weight=0]
-
-  server1sub15 -> gateway [weight=0]
-  gateway -> server1sub15 [weight=0]
-
-  server2sub15 -> gateway [weight=0]
-  gateway -> server2sub15 [weight=0]
+  swsub15 -> gateway [weight=0]
+  gateway -> swsub15 [weight=0]
 
   /* sub16 */
-  client1sub16 -> server1sub16 [weight=0]
-  server1sub16 -> client1sub16 [weight=0]
+  client1sub16 -> swsub16 [weight=0]
+  swsub16 -> client1sub16 [weight=0]
+  client2sub16 -> swsub16 [weight=0]
+  swsub16 -> client2sub16 [weight=0]
 
-  client2sub16 -> server1sub16 [weight=0]
-  server1sub16 -> client2sub16 [weight=0]
+  server1sub16 -> swsub16 [weight=0]
+  swsub16 -> server1sub16 [weight=0]
 
-  client1sub16 -> gateway [weight=0]
-  gateway -> client1sub16 [weight=0]
-
-  client2sub16 -> gateway [weight=0]
-  gateway -> client2sub16 [weight=0]
-
-  server1sub16 -> gateway [weight=0]
-  gateway -> server1sub16 [weight=0]
-
-  server2sub16 -> gateway [weight=0]
-  gateway -> server2sub16 [weight=0]
+  swsub16 -> gateway [weight=0]
+  gateway -> swsub16 [weight=0]
 
   /* sub17 */
-  client1sub17 -> server1sub17 [weight=0]
-  server1sub17 -> client1sub17 [weight=0]
+  client1sub17 -> swsub17 [weight=0]
+  swsub17 -> client1sub17 [weight=0]
+  client2sub17 -> swsub17 [weight=0]
+  swsub17 -> client2sub17 [weight=0]
 
-  client2sub17 -> server1sub17 [weight=0]
-  server1sub17 -> client2sub17 [weight=0]
+  server1sub17 -> swsub17 [weight=0]
+  swsub17 -> server1sub17 [weight=0]
 
-  client1sub17 -> gateway [weight=0]
-  gateway -> client1sub17 [weight=0]
-
-  client2sub17 -> gateway [weight=0]
-  gateway -> client2sub17 [weight=0]
-
-  server1sub17 -> gateway [weight=0]
-  gateway -> server1sub17 [weight=0]
-
-  server2sub17 -> gateway [weight=0]
-  gateway -> server2sub17 [weight=0]
+  swsub17 -> gateway [weight=0]
+  gateway -> swsub17 [weight=0]
 
   /* sub18 */
-  client1sub18 -> server1sub18 [weight=0]
-  server1sub18 -> client1sub18 [weight=0]
+  client1sub18 -> swsub18 [weight=0]
+  swsub18 -> client1sub18 [weight=0]
+  client2sub18 -> swsub18 [weight=0]
+  swsub18 -> client2sub18 [weight=0]
 
-  client2sub18 -> server1sub18 [weight=0]
-  server1sub18 -> client2sub18 [weight=0]
+  server1sub18 -> swsub18 [weight=0]
+  swsub18 -> server1sub18 [weight=0]
 
-  client1sub18 -> gateway [weight=0]
-  gateway -> client1sub18 [weight=0]
-
-  client2sub18 -> gateway [weight=0]
-  gateway -> client2sub18 [weight=0]
-
-  server1sub18 -> gateway [weight=0]
-  gateway -> server1sub18 [weight=0]
-
-  server2sub18 -> gateway [weight=0]
-  gateway -> server2sub18 [weight=0]
+  swsub18 -> gateway [weight=0]
+  gateway -> swsub18 [weight=0]
 
   /* sub19 */
-  client1sub19 -> server1sub19 [weight=0]
-  server1sub19 -> client1sub19 [weight=0]
+  client1sub19 -> swsub19 [weight=0]
+  swsub19 -> client1sub19 [weight=0]
+  client2sub19 -> swsub19 [weight=0]
+  swsub19 -> client2sub19 [weight=0]
 
-  client2sub19 -> server1sub19 [weight=0]
-  server1sub19 -> client2sub19 [weight=0]
+  server1sub19 -> swsub19 [weight=0]
+  swsub19 -> server1sub19 [weight=0]
 
-  client1sub19 -> gateway [weight=0]
-  gateway -> client1sub19 [weight=0]
-
-  client2sub19 -> gateway [weight=0]
-  gateway -> client2sub19 [weight=0]
-
-  server1sub19 -> gateway [weight=0]
-  gateway -> server1sub19 [weight=0]
-
-  server2sub19 -> gateway [weight=0]
-  gateway -> server2sub19 [weight=0]
+  swsub19 -> gateway [weight=0]
+  gateway -> swsub19 [weight=0]
 
   /* sub20 */
-  client1sub20 -> server1sub20 [weight=0]
-  server1sub20 -> client1sub20 [weight=0]
+  client1sub20 -> swsub20 [weight=0]
+  swsub20 -> client1sub20 [weight=0]
+  client2sub20 -> swsub20 [weight=0]
+  swsub20 -> client2sub20 [weight=0]
 
-  client2sub20 -> server1sub20 [weight=0]
-  server1sub20 -> client2sub20 [weight=0]
+  server1sub20 -> swsub20 [weight=0]
+  swsub20 -> server1sub20 [weight=0]
 
-  client1sub20 -> gateway [weight=0]
-  gateway -> client1sub20 [weight=0]
-
-  client2sub20 -> gateway [weight=0]
-  gateway -> client2sub20 [weight=0]
-
-  server1sub20 -> gateway [weight=0]
-  gateway -> server1sub20 [weight=0]
-
-  server2sub20 -> gateway [weight=0]
-  gateway -> server2sub20 [weight=0]
+  swsub20 -> gateway [weight=0]
+  gateway -> swsub20 [weight=0]
 
   /* sub21 */
-  client1sub21 -> server1sub21 [weight=0]
-  server1sub21 -> client1sub21 [weight=0]
+  client1sub21 -> swsub21 [weight=0]
+  swsub21 -> client1sub21 [weight=0]
+  client2sub21 -> swsub21 [weight=0]
+  swsub21 -> client2sub21 [weight=0]
 
-  client2sub21 -> server1sub21 [weight=0]
-  server1sub21 -> client2sub21 [weight=0]
+  server1sub21 -> swsub21 [weight=0]
+  swsub21 -> server1sub21 [weight=0]
 
-  client1sub21 -> gateway [weight=0]
-  gateway -> client1sub21 [weight=0]
-
-  client2sub21 -> gateway [weight=0]
-  gateway -> client2sub21 [weight=0]
-
-  server1sub21 -> gateway [weight=0]
-  gateway -> server1sub21 [weight=0]
-
-  server2sub21 -> gateway [weight=0]
-  gateway -> server2sub21 [weight=0]
+  swsub21 -> gateway [weight=0]
+  gateway -> swsub21 [weight=0]
 
   /* sub22 */
-  client1sub22 -> server1sub22 [weight=0]
-  server1sub22 -> client1sub22 [weight=0]
+  client1sub22 -> swsub22 [weight=0]
+  swsub22 -> client1sub22 [weight=0]
+  client2sub22 -> swsub22 [weight=0]
+  swsub22 -> client2sub22 [weight=0]
 
-  client2sub22 -> server1sub22 [weight=0]
-  server1sub22 -> client2sub22 [weight=0]
+  server1sub22 -> swsub22 [weight=0]
+  swsub22 -> server1sub22 [weight=0]
 
-  client1sub22 -> gateway [weight=0]
-  gateway -> client1sub22 [weight=0]
-
-  client2sub22 -> gateway [weight=0]
-  gateway -> client2sub22 [weight=0]
-
-  server1sub22 -> gateway [weight=0]
-  gateway -> server1sub22 [weight=0]
-
-  server2sub22 -> gateway [weight=0]
-  gateway -> server2sub22 [weight=0]
+  swsub22 -> gateway [weight=0]
+  gateway -> swsub22 [weight=0]
 
   /* sub23 */
-  client1sub23 -> server1sub23 [weight=0]
-  server1sub23 -> client1sub23 [weight=0]
+  client1sub23 -> swsub23 [weight=0]
+  swsub23 -> client1sub23 [weight=0]
+  client2sub23 -> swsub23 [weight=0]
+  swsub23 -> client2sub23 [weight=0]
 
-  client2sub23 -> server1sub23 [weight=0]
-  server1sub23 -> client2sub23 [weight=0]
+  server1sub23 -> swsub23 [weight=0]
+  swsub23 -> server1sub23 [weight=0]
 
-  client1sub23 -> gateway [weight=0]
-  gateway -> client1sub23 [weight=0]
-
-  client2sub23 -> gateway [weight=0]
-  gateway -> client2sub23 [weight=0]
-
-  server1sub23 -> gateway [weight=0]
-  gateway -> server1sub23 [weight=0]
-
-  server2sub23 -> gateway [weight=0]
-  gateway -> server2sub23 [weight=0]
+  swsub23 -> gateway [weight=0]
+  gateway -> swsub23 [weight=0]
 
   /* sub24 */
-  client1sub24 -> server1sub24 [weight=0]
-  server1sub24 -> client1sub24 [weight=0]
+  client1sub24 -> swsub24 [weight=0]
+  swsub24 -> client1sub24 [weight=0]
+  client2sub24 -> swsub24 [weight=0]
+  swsub24 -> client2sub24 [weight=0]
 
-  client2sub24 -> server1sub24 [weight=0]
-  server1sub24 -> client2sub24 [weight=0]
+  server1sub24 -> swsub24 [weight=0]
+  swsub24 -> server1sub24 [weight=0]
 
-  client1sub24 -> gateway [weight=0]
-  gateway -> client1sub24 [weight=0]
-
-  client2sub24 -> gateway [weight=0]
-  gateway -> client2sub24 [weight=0]
-
-  server1sub24 -> gateway [weight=0]
-  gateway -> server1sub24 [weight=0]
-
-  server2sub24 -> gateway [weight=0]
-  gateway -> server2sub24 [weight=0]
+  swsub24 -> gateway [weight=0]
+  gateway -> swsub24 [weight=0]
 }
