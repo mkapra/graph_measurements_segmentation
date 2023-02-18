@@ -1,0 +1,843 @@
+# Clients -> DMZ
+clientpc1 -> file: 2
+clientpc1 -> mail: 8
+clientpc1 -> web: 2
+clientpc1 -> ldap: 3
+clientpc1 -> dns: 1
+clientpc1 -> internet: 50
+
+clientpc2 -> file: 2
+clientpc2 -> mail: 8
+clientpc2 -> web: 2
+clientpc2 -> ldap: 3
+clientpc2 -> dns: 1
+clientpc2 -> internet: 50
+
+clientpc3 -> file: 2
+clientpc3 -> mail: 8
+clientpc3 -> web: 2
+clientpc3 -> ldap: 3
+clientpc3 -> dns: 1
+clientpc3 -> internet: 50
+
+clientpc4 -> file: 2
+clientpc4 -> mail: 8
+clientpc4 -> web: 2
+clientpc4 -> ldap: 3
+clientpc4 -> dns: 1
+clientpc4 -> internet: 50
+
+clientlaptop1 -> file: 2
+clientlaptop1 -> mail: 8
+clientlaptop1 -> web: 2
+clientlaptop1 -> ldap: 3
+clientlaptop1 -> dns: 1
+clientlaptop1 -> internet: 50
+
+clientlaptop2 -> file: 2
+clientlaptop2 -> mail: 8
+clientlaptop2 -> web: 2
+clientlaptop2 -> ldap: 3
+clientlaptop2 -> dns: 1
+clientlaptop2 -> internet: 50
+
+clientlaptop3 -> file: 2
+clientlaptop3 -> mail: 8
+clientlaptop3 -> web: 2
+clientlaptop3 -> ldap: 3
+clientlaptop3 -> dns: 1
+clientlaptop3 -> internet: 50
+
+clientlaptop4 -> file: 2
+clientlaptop4 -> mail: 8
+clientlaptop4 -> web: 2
+clientlaptop4 -> ldap: 3
+clientlaptop4 -> dns: 1
+clientlaptop4 -> internet: 50
+
+# Sub1
+## Internet access for all devices in sub
+client2sub1 -> internet: 50
+server1sub1 -> internet: 50
+
+## Access from clients to sub server
+client2sub1 -> server1sub1
+
+## Clients access to DMZ
+
+client2sub1 -> file: 2
+client2sub1 -> mail: 8
+client2sub1 -> web: 2
+client2sub1 -> ldap: 3
+client2sub1 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub1 -> ldap: 3
+client2sub1 -> ldap: 3
+
+# sub2
+## Internet access for all devices in sub
+client1sub2 -> internet: 50
+client2sub2 -> internet: 50
+server1sub2 -> internet: 50
+
+## Access from clients to sub server
+client1sub2 -> server1sub2
+client2sub2 -> server1sub2
+
+## LDAP Authentication for all clients and servers
+server1sub2 -> ldap: 3
+client1sub2 -> ldap: 3
+client2sub2 -> ldap: 3
+
+# sub3
+## Internet access for all devices in sub
+client1sub3 -> internet: 50
+client2sub3 -> internet: 50
+server1sub3 -> internet: 50
+
+## Access from clients to sub server
+client1sub3 -> server1sub3
+client2sub3 -> server1sub3
+
+## Clients access to DMZ
+client1sub3 -> file: 2
+client1sub3 -> mail: 8
+client1sub3 -> web: 2
+client1sub3 -> ldap: 3
+client1sub3 -> dns: 1
+
+client2sub3 -> file: 2
+client2sub3 -> mail: 8
+client2sub3 -> web: 2
+client2sub3 -> ldap: 3
+client2sub3 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub3 -> ldap: 3
+client1sub3 -> ldap: 3
+client2sub3 -> ldap: 3
+
+# sub4
+## Internet access for all devices in sub
+client1sub4 -> internet: 50
+client2sub4 -> internet: 50
+server1sub4 -> internet: 50
+
+## Access from clients to sub server
+client1sub4 -> server1sub4
+client2sub4 -> server1sub4
+
+## Clients access to DMZ
+client1sub4 -> file: 2
+client1sub4 -> mail: 8
+client1sub4 -> web: 2
+client1sub4 -> ldap: 3
+client1sub4 -> dns: 1
+
+client2sub4 -> file: 2
+client2sub4 -> mail: 8
+client2sub4 -> web: 2
+client2sub4 -> ldap: 3
+client2sub4 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub4 -> ldap: 3
+client1sub4 -> ldap: 3
+client2sub4 -> ldap: 3
+
+# sub5
+## Internet access for all devices in sub
+client1sub5 -> internet: 50
+client2sub5 -> internet: 50
+server1sub5 -> internet: 50
+
+## Access from clients to sub server
+client1sub5 -> server1sub5
+client2sub5 -> server1sub5
+
+## Clients access to DMZ
+client1sub5 -> file: 2
+client1sub5 -> mail: 8
+client1sub5 -> web: 2
+client1sub5 -> ldap: 3
+client1sub5 -> dns: 1
+
+client2sub5 -> file: 2
+client2sub5 -> mail: 8
+client2sub5 -> web: 2
+client2sub5 -> ldap: 3
+client2sub5 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub5 -> ldap: 3
+client1sub5 -> ldap: 3
+client2sub5 -> ldap: 3
+
+# sub6
+## Internet access for all devices in sub
+client1sub6 -> internet: 50
+client2sub6 -> internet: 50
+server1sub6 -> internet: 50
+
+## Access from clients to sub server
+client1sub6 -> server1sub6
+client2sub6 -> server1sub6
+
+## Clients access to DMZ
+client1sub6 -> file: 2
+client1sub6 -> mail: 8
+client1sub6 -> web: 2
+client1sub6 -> ldap: 3
+client1sub6 -> dns: 1
+
+client2sub6 -> file: 2
+client2sub6 -> mail: 8
+client2sub6 -> web: 2
+client2sub6 -> ldap: 3
+client2sub6 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub6 -> ldap: 3
+client1sub6 -> ldap: 3
+client2sub6 -> ldap: 3
+
+# sub7
+## Internet access for all devices in sub
+client1sub7 -> internet: 50
+client2sub7 -> internet: 50
+server1sub7 -> internet: 50
+
+## Access from clients to sub server
+client1sub7 -> server1sub7
+client2sub7 -> server1sub7
+
+## Clients access to DMZ
+client1sub7 -> file: 2
+client1sub7 -> mail: 8
+client1sub7 -> web: 2
+client1sub7 -> ldap: 3
+client1sub7 -> dns: 1
+
+client2sub7 -> file: 2
+client2sub7 -> mail: 8
+client2sub7 -> web: 2
+client2sub7 -> ldap: 3
+client2sub7 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub7 -> ldap: 3
+client1sub7 -> ldap: 3
+client2sub7 -> ldap: 3
+
+# sub8
+## Internet access for all devices in sub
+client1sub8 -> internet: 50
+client2sub8 -> internet: 50
+server1sub8 -> internet: 50
+
+## Access from clients to sub server
+client1sub8 -> server1sub8
+client2sub8 -> server1sub8
+
+## Clients access to DMZ
+client1sub8 -> file: 2
+client1sub8 -> mail: 8
+client1sub8 -> web: 2
+client1sub8 -> ldap: 3
+client1sub8 -> dns: 1
+
+client2sub8 -> file: 2
+client2sub8 -> mail: 8
+client2sub8 -> web: 2
+client2sub8 -> ldap: 3
+client2sub8 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub8 -> ldap: 3
+client1sub8 -> ldap: 3
+client2sub8 -> ldap: 3
+
+# sub9
+## Internet access for all devices in sub
+client1sub9 -> internet: 50
+client2sub9 -> internet: 50
+server1sub9 -> internet: 50
+
+## Access from clients to sub server
+client1sub9 -> server1sub9
+client2sub9 -> server1sub9
+
+## Clients access to DMZ
+client1sub9 -> file: 2
+client1sub9 -> mail: 8
+client1sub9 -> web: 2
+client1sub9 -> ldap: 3
+client1sub9 -> dns: 1
+
+client2sub9 -> file: 2
+client2sub9 -> mail: 8
+client2sub9 -> web: 2
+client2sub9 -> ldap: 3
+client2sub9 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub9 -> ldap: 3
+client1sub9 -> ldap: 3
+client2sub9 -> ldap: 3
+
+# sub10
+## Internet access for all devices in sub
+client1sub10 -> internet: 50
+client2sub10 -> internet: 50
+server1sub10 -> internet: 50
+
+## Access from clients to sub server
+client1sub10 -> server1sub10
+client2sub10 -> server1sub10
+
+## Clients access to DMZ
+client1sub10 -> file: 2
+client1sub10 -> mail: 8
+client1sub10 -> web: 2
+client1sub10 -> ldap: 3
+client1sub10 -> dns: 1
+
+client2sub10 -> file: 2
+client2sub10 -> mail: 8
+client2sub10 -> web: 2
+client2sub10 -> ldap: 3
+client2sub10 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub10 -> ldap: 3
+client1sub10 -> ldap: 3
+client2sub10 -> ldap: 3
+
+# sub11
+## Internet access for all devices in sub
+client1sub11 -> internet: 50
+client2sub11 -> internet: 50
+server1sub11 -> internet: 50
+
+## Access from clients to sub server
+client1sub11 -> server1sub11
+client2sub11 -> server1sub11
+
+## Clients access to DMZ
+client1sub11 -> file: 2
+client1sub11 -> mail: 8
+client1sub11 -> web: 2
+client1sub11 -> ldap: 3
+client1sub11 -> dns: 1
+
+client2sub11 -> file: 2
+client2sub11 -> mail: 8
+client2sub11 -> web: 2
+client2sub11 -> ldap: 3
+client2sub11 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub11 -> ldap: 3
+client1sub11 -> ldap: 3
+client2sub11 -> ldap: 3
+
+# sub12
+## Internet access for all devices in sub
+client1sub12 -> internet: 50
+client2sub12 -> internet: 50
+server1sub12 -> internet: 50
+
+## Access from clients to sub server
+client1sub12 -> server1sub12
+client2sub12 -> server1sub12
+
+## Clients access to DMZ
+client1sub12 -> file: 2
+client1sub12 -> mail: 8
+client1sub12 -> web: 2
+client1sub12 -> ldap: 3
+client1sub12 -> dns: 1
+
+client2sub12 -> file: 2
+client2sub12 -> mail: 8
+client2sub12 -> web: 2
+client2sub12 -> ldap: 3
+client2sub12 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub12 -> ldap: 3
+client1sub12 -> ldap: 3
+client2sub12 -> ldap: 3
+
+# sub13
+## Internet access for all devices in sub
+client1sub13 -> internet: 50
+client2sub13 -> internet: 50
+server1sub13 -> internet: 50
+
+## Access from clients to sub server
+client1sub13 -> server1sub13
+client2sub13 -> server1sub13
+
+## Clients access to DMZ
+client1sub13 -> file: 2
+client1sub13 -> mail: 8
+client1sub13 -> web: 2
+client1sub13 -> ldap: 3
+client1sub13 -> dns: 1
+
+client2sub13 -> file: 2
+client2sub13 -> mail: 8
+client2sub13 -> web: 2
+client2sub13 -> ldap: 3
+client2sub13 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub13 -> ldap: 3
+client1sub13 -> ldap: 3
+client2sub13 -> ldap: 3
+
+# sub14
+## Internet access for all devices in sub
+client1sub14 -> internet: 50
+client2sub14 -> internet: 50
+server1sub14 -> internet: 50
+
+## Access from clients to sub server
+client1sub14 -> server1sub14
+client2sub14 -> server1sub14
+
+## Clients access to DMZ
+client1sub14 -> file: 2
+client1sub14 -> mail: 8
+client1sub14 -> web: 2
+client1sub14 -> ldap: 3
+client1sub14 -> dns: 1
+
+client2sub14 -> file: 2
+client2sub14 -> mail: 8
+client2sub14 -> web: 2
+client2sub14 -> ldap: 3
+client2sub14 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub14 -> ldap: 3
+client1sub14 -> ldap: 3
+client2sub14 -> ldap: 3
+
+# sub15
+## Internet access for all devices in sub
+client1sub15 -> internet: 50
+client2sub15 -> internet: 50
+server1sub15 -> internet: 50
+
+## Access from clients to sub server
+client1sub15 -> server1sub15
+client2sub15 -> server1sub15
+
+## Clients access to DMZ
+client1sub15 -> file: 2
+client1sub15 -> mail: 8
+client1sub15 -> web: 2
+client1sub15 -> ldap: 3
+client1sub15 -> dns: 1
+
+client2sub15 -> file: 2
+client2sub15 -> mail: 8
+client2sub15 -> web: 2
+client2sub15 -> ldap: 3
+client2sub15 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub15 -> ldap: 3
+client1sub15 -> ldap: 3
+client2sub15 -> ldap: 3
+
+# sub16
+## Internet access for all devices in sub
+client1sub16 -> internet: 50
+client2sub16 -> internet: 50
+server1sub16 -> internet: 50
+
+## Access from clients to sub server
+client1sub16 -> server1sub16
+client2sub16 -> server1sub16
+
+## Clients access to DMZ
+client1sub16 -> file: 2
+client1sub16 -> mail: 8
+client1sub16 -> web: 2
+client1sub16 -> ldap: 3
+client1sub16 -> dns: 1
+
+client2sub16 -> file: 2
+client2sub16 -> mail: 8
+client2sub16 -> web: 2
+client2sub16 -> ldap: 3
+client2sub16 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub16 -> ldap: 3
+client1sub16 -> ldap: 3
+client2sub16 -> ldap: 3
+
+# sub17
+## Internet access for all devices in sub
+client1sub17 -> internet: 50
+client2sub17 -> internet: 50
+server1sub17 -> internet: 50
+
+## Access from clients to sub server
+client1sub17 -> server1sub17
+client2sub17 -> server1sub17
+
+## Clients access to DMZ
+client1sub17 -> file: 2
+client1sub17 -> mail: 8
+client1sub17 -> web: 2
+client1sub17 -> ldap: 3
+client1sub17 -> dns: 1
+
+client2sub17 -> file: 2
+client2sub17 -> mail: 8
+client2sub17 -> web: 2
+client2sub17 -> ldap: 3
+client2sub17 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub17 -> ldap: 3
+client1sub17 -> ldap: 3
+client2sub17 -> ldap: 3
+
+# sub18
+## Internet access for all devices in sub
+client1sub18 -> internet: 50
+client2sub18 -> internet: 50
+server1sub18 -> internet: 50
+
+## Access from clients to sub server
+client1sub18 -> server1sub18
+client2sub18 -> server1sub18
+
+## Clients access to DMZ
+client1sub18 -> file: 2
+client1sub18 -> mail: 8
+client1sub18 -> web: 2
+client1sub18 -> ldap: 3
+client1sub18 -> dns: 1
+
+client2sub18 -> file: 2
+client2sub18 -> mail: 8
+client2sub18 -> web: 2
+client2sub18 -> ldap: 3
+client2sub18 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub18 -> ldap: 3
+client1sub18 -> ldap: 3
+client2sub18 -> ldap: 3
+
+# sub19
+## Internet access for all devices in sub
+client1sub19 -> internet: 50
+client2sub19 -> internet: 50
+server1sub19 -> internet: 50
+
+## Access from clients to sub server
+client1sub19 -> server1sub19
+client2sub19 -> server1sub19
+
+## Clients access to DMZ
+client1sub19 -> file: 2
+client1sub19 -> mail: 8
+client1sub19 -> web: 2
+client1sub19 -> ldap: 3
+client1sub19 -> dns: 1
+
+client2sub19 -> file: 2
+client2sub19 -> mail: 8
+client2sub19 -> web: 2
+client2sub19 -> ldap: 3
+client2sub19 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub19 -> ldap: 3
+client1sub19 -> ldap: 3
+client2sub19 -> ldap: 3
+
+# sub20
+## Internet access for all devices in sub
+client1sub20 -> internet: 50
+client2sub20 -> internet: 50
+server1sub20 -> internet: 50
+
+## Access from clients to sub server
+client1sub20 -> server1sub20
+client2sub20 -> server1sub20
+
+## Clients access to DMZ
+client1sub20 -> file: 2
+client1sub20 -> mail: 8
+client1sub20 -> web: 2
+client1sub20 -> ldap: 3
+client1sub20 -> dns: 1
+
+client2sub20 -> file: 2
+client2sub20 -> mail: 8
+client2sub20 -> web: 2
+client2sub20 -> ldap: 3
+client2sub20 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub20 -> ldap: 3
+client1sub20 -> ldap: 3
+client2sub20 -> ldap: 3
+
+# sub21
+## Internet access for all devices in sub
+client1sub21 -> internet: 50
+client2sub21 -> internet: 50
+server1sub21 -> internet: 50
+
+## Access from clients to sub server
+client1sub21 -> server1sub21
+client2sub21 -> server1sub21
+
+## Clients access to DMZ
+client1sub21 -> file: 2
+client1sub21 -> mail: 8
+client1sub21 -> web: 2
+client1sub21 -> ldap: 3
+client1sub21 -> dns: 1
+
+client2sub21 -> file: 2
+client2sub21 -> mail: 8
+client2sub21 -> web: 2
+client2sub21 -> ldap: 3
+client2sub21 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub21 -> ldap: 3
+client1sub21 -> ldap: 3
+client2sub21 -> ldap: 3
+
+# sub22
+## Internet access for all devices in sub
+client1sub22 -> internet: 50
+client2sub22 -> internet: 50
+server1sub22 -> internet: 50
+
+## Access from clients to sub server
+client1sub22 -> server1sub22
+client2sub22 -> server1sub22
+
+## Clients access to DMZ
+client1sub22 -> file: 2
+client1sub22 -> mail: 8
+client1sub22 -> web: 2
+client1sub22 -> ldap: 3
+client1sub22 -> dns: 1
+
+client2sub22 -> file: 2
+client2sub22 -> mail: 8
+client2sub22 -> web: 2
+client2sub22 -> ldap: 3
+client2sub22 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub22 -> ldap: 3
+client1sub22 -> ldap: 3
+client2sub22 -> ldap: 3
+
+# sub23
+## Internet access for all devices in sub
+client1sub23 -> internet: 50
+client2sub23 -> internet: 50
+server1sub23 -> internet: 50
+
+## Access from clients to sub server
+client1sub23 -> server1sub23
+client2sub23 -> server1sub23
+
+## Clients access to DMZ
+client1sub23 -> file: 2
+client1sub23 -> mail: 8
+client1sub23 -> web: 2
+client1sub23 -> ldap: 3
+client1sub23 -> dns: 1
+
+client2sub23 -> file: 2
+client2sub23 -> mail: 8
+client2sub23 -> web: 2
+client2sub23 -> ldap: 3
+client2sub23 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub23 -> ldap: 3
+client1sub23 -> ldap: 3
+client2sub23 -> ldap: 3
+
+# sub24
+## Internet access for all devices in sub
+client1sub24 -> internet: 50
+client2sub24 -> internet: 50
+server1sub24 -> internet: 50
+
+## Access from clients to sub server
+client1sub24 -> server1sub24
+client2sub24 -> server1sub24
+
+## Clients access to DMZ
+client1sub24 -> file: 2
+client1sub24 -> mail: 8
+client1sub24 -> web: 2
+client1sub24 -> ldap: 3
+client1sub24 -> dns: 1
+
+client2sub24 -> file: 2
+client2sub24 -> mail: 8
+client2sub24 -> web: 2
+client2sub24 -> ldap: 3
+client2sub24 -> dns: 1
+
+## LDAP Authentication for all clients and servers
+server1sub24 -> ldap: 3
+client1sub24 -> ldap: 3
+client2sub24 -> ldap: 3
+
+# src: gateway/external network
+gateway -> vpn: 2
+gateway -> mail: 8
+gateway -> web: 2
+gateway -> dns: 1
+
+# Admin to all devices: SSH
+admin -> file: 1
+admin -> mail: 1
+admin -> vpn: 1
+admin -> dns: 1
+admin -> web: 1
+admin -> ldap: 1
+admin -> db: 1
+
+admin -> server1sub1: 1
+admin -> server1sub2: 1
+admin -> server1sub3: 1
+admin -> server1sub4: 1
+admin -> server1sub5: 1
+admin -> server1sub6: 1
+admin -> server1sub7: 1
+admin -> server1sub8: 1
+admin -> server1sub9: 1
+admin -> server1sub10: 1
+admin -> server1sub11: 1
+admin -> server1sub12: 1
+admin -> server1sub13: 1
+admin -> server1sub14: 1
+admin -> server1sub15: 1
+admin -> server1sub16: 1
+admin -> server1sub17: 1
+admin -> server1sub18: 1
+admin -> server1sub19: 1
+admin -> server1sub20: 1
+admin -> server1sub21: 1
+admin -> server1sub22: 1
+admin -> server1sub23: 1
+admin -> server1sub24: 1
+
+admin -> client2sub1: 1
+
+admin -> client1sub2: 1
+admin -> client2sub2: 1
+
+admin -> client1sub3: 1
+admin -> client2sub3: 1
+
+admin -> client1sub4: 1
+admin -> client2sub4: 1
+
+admin -> client1sub5: 1
+admin -> client2sub5: 1
+
+admin -> client1sub6: 1
+admin -> client2sub6: 1
+
+admin -> client1sub7: 1
+admin -> client2sub7: 1
+
+admin -> client1sub8: 1
+admin -> client2sub8: 1
+
+admin -> client1sub9: 1
+admin -> client2sub9: 1
+
+admin -> client1sub10: 1
+admin -> client2sub10: 1
+
+admin -> client1sub11: 1
+admin -> client2sub11: 1
+
+admin -> client1sub12: 1
+admin -> client2sub12: 1
+
+admin -> client1sub13: 1
+admin -> client2sub13: 1
+
+admin -> client1sub14: 1
+admin -> client2sub14: 1
+
+admin -> client1sub15: 1
+admin -> client2sub15: 1
+
+admin -> client1sub16: 1
+admin -> client2sub16: 1
+
+admin -> client1sub17: 1
+admin -> client2sub17: 1
+
+admin -> client1sub18: 1
+admin -> client2sub18: 1
+
+admin -> client1sub19: 1
+admin -> client2sub19: 1
+
+admin -> client1sub20: 1
+admin -> client2sub20: 1
+
+admin -> client1sub21: 1
+admin -> client2sub21: 1
+
+admin -> client1sub22: 1
+admin -> client2sub22: 1
+
+admin -> client1sub23: 1
+admin -> client2sub23: 1
+
+admin -> client1sub24: 1
+admin -> client2sub24: 1
+
+admin -> swsub1: 1
+admin -> swsub2: 1
+admin -> swsub3: 1
+admin -> swsub4: 1
+admin -> swsub5: 1
+admin -> swsub6: 1
+admin -> swsub7: 1
+admin -> swsub8: 1
+admin -> swsub9: 1
+admin -> swsub10: 1
+admin -> swsub11: 1
+admin -> swsub12: 1
+admin -> swsub13: 1
+admin -> swsub14: 1
+admin -> swsub15: 1
+admin -> swsub16: 1
+admin -> swsub17: 1
+admin -> swsub18: 1
+admin -> swsub19: 1
+admin -> swsub20: 1
+admin -> swsub21: 1
+admin -> swsub22: 1
+admin -> swsub23: 1
+admin -> swsub24: 1
