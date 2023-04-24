@@ -19,11 +19,15 @@ for file in files:
     except Exception as e:
         print(f"Error for {file}: {e}")
 
+node_counts = 0
 for n, g in graphs:
     # Criteria which graphs are not extracted to be used for simulation
     if len(g.nodes()) > 50:
         continue
 
-    print(f"[{n}] nodes={len(g.nodes())}, edges={len(g.edges())}")
-    with open('tmp/interesting_graphs.txt', 'a') as fh:
-        fh.write(f"{n}\n")
+    node_counts += 1
+
+    # print(f"[{n}] nodes={len(g.nodes())}, edges={len(g.edges())}")
+    # with open('tmp/interesting_graphs.txt', 'a') as fh:
+    #     fh.write(f"{n}\n")
+print(node_counts)

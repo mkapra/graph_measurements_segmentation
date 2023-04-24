@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from itertools import product
+from itertools import product, chain
 from random import sample
 import copy
 import matplotlib.pyplot as plt
@@ -136,7 +136,7 @@ class DiGraph(nx.DiGraph):
         stats['before']['edgecount_with_zero'] = len(self.edges())
         self = self.remove_zero_edges()
         stats['before']['edgecount'] = len(self.edges())
-        stats['before']['edges'] = self.edges(data=True)
+        stats['before']['edges'] = str(self.edges(data=True))
 
         G_after = copy.deepcopy(self)
         for i in range(amount_of_attacks):
@@ -148,7 +148,7 @@ class DiGraph(nx.DiGraph):
         stats['after']['edgecount_with_zero'] = len(self.edges())
         G_after = G_after.remove_zero_edges()
         stats['after']['edgecount'] = len(G_after.edges())
-        stats['before']['edges'] = G_after.edges(data=True)
+        stats['before']['edges'] = str(G_after.edges(data=True))
         return self, G_after, stats
 
     @staticmethod
@@ -248,7 +248,7 @@ class DiGraph(nx.DiGraph):
             return (1/len_nodes) * sum(out_degrees)
 
         G = copy.deepcopy(self)
-        G.remove_zero_edges()
+        # G.remove_zero_edges()
 
         return calc(
                 len(G.nodes()),
@@ -286,17 +286,8 @@ class DiGraph(nx.DiGraph):
     def lsp(self):
         """List of shortest paths
         """
-        shortest_paths = []
-        for x, y in product(self.nodes(), repeat=2):
-            if x == y:
-                continue
-            try:
-                shortest_paths.append(
-                    nx.shortest_path(self, source=x, target=y)
-                )
-            except nx.exception.NetworkXNoPath:
-                continue
-        return shortest_paths
+        res = nx.all_pairs_shortest_path(self)
+        return list(chain(*[list(paths.values()) for paths in [dsts for _, dsts in res]]))
 
     def draw_to_svg(self):
         """Saves the graph to a svg file

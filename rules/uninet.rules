@@ -62,8 +62,8 @@ client2sub1 -> internet: 50
 server1sub1 -> internet: 50
 
 ## Access from clients to sub server
-client1sub1 -> server1sub1
-client2sub1 -> server1sub1
+client1sub1 -> server1sub1: 10
+client2sub1 -> server1sub1: 10
 
 ## Clients access to DMZ
 client1sub1 -> file: 2
@@ -90,8 +90,8 @@ client2sub2 -> internet: 50
 server1sub2 -> internet: 50
 
 ## Access from clients to sub server
-client1sub2 -> server1sub2
-client2sub2 -> server1sub2
+client1sub2 -> server1sub2: 10
+client2sub2 -> server1sub2: 10
 
 ## LDAP Authentication for all clients and servers
 server1sub2 -> ldap: 3
@@ -105,8 +105,8 @@ client2sub3 -> internet: 50
 server1sub3 -> internet: 50
 
 ## Access from clients to sub server
-client1sub3 -> server1sub3
-client2sub3 -> server1sub3
+client1sub3 -> server1sub3: 10
+client2sub3 -> server1sub3: 10
 
 ## Clients access to DMZ
 client1sub3 -> file: 2
@@ -133,8 +133,8 @@ client2sub4 -> internet: 50
 server1sub4 -> internet: 50
 
 ## Access from clients to sub server
-client1sub4 -> server1sub4
-client2sub4 -> server1sub4
+client1sub4 -> server1sub4: 10
+client2sub4 -> server1sub4: 10
 
 ## Clients access to DMZ
 client1sub4 -> file: 2
@@ -161,8 +161,8 @@ client2sub5 -> internet: 50
 server1sub5 -> internet: 50
 
 ## Access from clients to sub server
-client1sub5 -> server1sub5
-client2sub5 -> server1sub5
+client1sub5 -> server1sub5: 10
+client2sub5 -> server1sub5: 10
 
 ## Clients access to DMZ
 client1sub5 -> file: 2
@@ -189,8 +189,8 @@ client2sub6 -> internet: 50
 server1sub6 -> internet: 50
 
 ## Access from clients to sub server
-client1sub6 -> server1sub6
-client2sub6 -> server1sub6
+client1sub6 -> server1sub6: 10
+client2sub6 -> server1sub6: 10
 
 ## Clients access to DMZ
 client1sub6 -> file: 2
@@ -217,8 +217,8 @@ client2sub7 -> internet: 50
 server1sub7 -> internet: 50
 
 ## Access from clients to sub server
-client1sub7 -> server1sub7
-client2sub7 -> server1sub7
+client1sub7 -> server1sub7: 10
+client2sub7 -> server1sub7: 10
 
 ## Clients access to DMZ
 client1sub7 -> file: 2
@@ -245,8 +245,8 @@ client2sub8 -> internet: 50
 server1sub8 -> internet: 50
 
 ## Access from clients to sub server
-client1sub8 -> server1sub8
-client2sub8 -> server1sub8
+client1sub8 -> server1sub8: 10
+client2sub8 -> server1sub8: 10
 
 ## Clients access to DMZ
 client1sub8 -> file: 2
@@ -273,8 +273,8 @@ client2sub9 -> internet: 50
 server1sub9 -> internet: 50
 
 ## Access from clients to sub server
-client1sub9 -> server1sub9
-client2sub9 -> server1sub9
+client1sub9 -> server1sub9: 10
+client2sub9 -> server1sub9: 10
 
 ## Clients access to DMZ
 client1sub9 -> file: 2
@@ -301,8 +301,8 @@ client2sub10 -> internet: 50
 server1sub10 -> internet: 50
 
 ## Access from clients to sub server
-client1sub10 -> server1sub10
-client2sub10 -> server1sub10
+client1sub10 -> server1sub10: 10
+client2sub10 -> server1sub10: 10
 
 ## Clients access to DMZ
 client1sub10 -> file: 2
@@ -329,8 +329,8 @@ client2sub11 -> internet: 50
 server1sub11 -> internet: 50
 
 ## Access from clients to sub server
-client1sub11 -> server1sub11
-client2sub11 -> server1sub11
+client1sub11 -> server1sub11: 10
+client2sub11 -> server1sub11: 10
 
 ## Clients access to DMZ
 client1sub11 -> file: 2
@@ -357,8 +357,8 @@ client2sub12 -> internet: 50
 server1sub12 -> internet: 50
 
 ## Access from clients to sub server
-client1sub12 -> server1sub12
-client2sub12 -> server1sub12
+client1sub12 -> server1sub12: 10
+client2sub12 -> server1sub12: 10
 
 ## Clients access to DMZ
 client1sub12 -> file: 2
@@ -385,8 +385,8 @@ client2sub13 -> internet: 50
 server1sub13 -> internet: 50
 
 ## Access from clients to sub server
-client1sub13 -> server1sub13
-client2sub13 -> server1sub13
+client1sub13 -> server1sub13: 10
+client2sub13 -> server1sub13: 10
 
 ## Clients access to DMZ
 client1sub13 -> file: 2
@@ -413,8 +413,8 @@ client2sub14 -> internet: 50
 server1sub14 -> internet: 50
 
 ## Access from clients to sub server
-client1sub14 -> server1sub14
-client2sub14 -> server1sub14
+client1sub14 -> server1sub14: 10
+client2sub14 -> server1sub14: 10
 
 ## Clients access to DMZ
 client1sub14 -> file: 2
@@ -441,8 +441,8 @@ client2sub15 -> internet: 50
 server1sub15 -> internet: 50
 
 ## Access from clients to sub server
-client1sub15 -> server1sub15
-client2sub15 -> server1sub15
+client1sub15 -> server1sub15: 10
+client2sub15 -> server1sub15: 10
 
 ## Clients access to DMZ
 client1sub15 -> file: 2
@@ -469,8 +469,8 @@ client2sub16 -> internet: 50
 server1sub16 -> internet: 50
 
 ## Access from clients to sub server
-client1sub16 -> server1sub16
-client2sub16 -> server1sub16
+client1sub16 -> server1sub16: 10
+client2sub16 -> server1sub16: 10
 
 ## Clients access to DMZ
 client1sub16 -> file: 2
@@ -497,8 +497,8 @@ client2sub17 -> internet: 50
 server1sub17 -> internet: 50
 
 ## Access from clients to sub server
-client1sub17 -> server1sub17
-client2sub17 -> server1sub17
+client1sub17 -> server1sub17: 10
+client2sub17 -> server1sub17: 10
 
 ## Clients access to DMZ
 client1sub17 -> file: 2
@@ -525,8 +525,8 @@ client2sub18 -> internet: 50
 server1sub18 -> internet: 50
 
 ## Access from clients to sub server
-client1sub18 -> server1sub18
-client2sub18 -> server1sub18
+client1sub18 -> server1sub18: 10
+client2sub18 -> server1sub18: 10
 
 ## Clients access to DMZ
 client1sub18 -> file: 2
@@ -553,8 +553,8 @@ client2sub19 -> internet: 50
 server1sub19 -> internet: 50
 
 ## Access from clients to sub server
-client1sub19 -> server1sub19
-client2sub19 -> server1sub19
+client1sub19 -> server1sub19: 10
+client2sub19 -> server1sub19: 10
 
 ## Clients access to DMZ
 client1sub19 -> file: 2
@@ -581,8 +581,8 @@ client2sub20 -> internet: 50
 server1sub20 -> internet: 50
 
 ## Access from clients to sub server
-client1sub20 -> server1sub20
-client2sub20 -> server1sub20
+client1sub20 -> server1sub20: 10
+client2sub20 -> server1sub20: 10
 
 ## Clients access to DMZ
 client1sub20 -> file: 2
@@ -609,8 +609,8 @@ client2sub21 -> internet: 50
 server1sub21 -> internet: 50
 
 ## Access from clients to sub server
-client1sub21 -> server1sub21
-client2sub21 -> server1sub21
+client1sub21 -> server1sub21: 10
+client2sub21 -> server1sub21: 10
 
 ## Clients access to DMZ
 client1sub21 -> file: 2
@@ -637,8 +637,8 @@ client2sub22 -> internet: 50
 server1sub22 -> internet: 50
 
 ## Access from clients to sub server
-client1sub22 -> server1sub22
-client2sub22 -> server1sub22
+client1sub22 -> server1sub22: 10
+client2sub22 -> server1sub22: 10
 
 ## Clients access to DMZ
 client1sub22 -> file: 2
@@ -665,8 +665,8 @@ client2sub23 -> internet: 50
 server1sub23 -> internet: 50
 
 ## Access from clients to sub server
-client1sub23 -> server1sub23
-client2sub23 -> server1sub23
+client1sub23 -> server1sub23: 10
+client2sub23 -> server1sub23: 10
 
 ## Clients access to DMZ
 client1sub23 -> file: 2
@@ -693,8 +693,8 @@ client2sub24 -> internet: 50
 server1sub24 -> internet: 50
 
 ## Access from clients to sub server
-client1sub24 -> server1sub24
-client2sub24 -> server1sub24
+client1sub24 -> server1sub24: 10
+client2sub24 -> server1sub24: 10
 
 ## Clients access to DMZ
 client1sub24 -> file: 2
