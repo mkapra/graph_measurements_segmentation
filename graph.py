@@ -6,14 +6,12 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import random
 
-
 def calc_diff(first, second):
     """Returns the procentual change between first and second.
     """
     if first == 0:
         return 0
     return round(((second/first) - 1) * 100, 5)
-
 
 def print_res(name, before, after):
     """Prints a given metric with a before and after value

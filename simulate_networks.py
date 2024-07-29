@@ -7,7 +7,6 @@ import threading
 import random
 from datetime import date
 
-
 def read_graphml_files():
     with open('tmp/interesting_graphs.txt') as fh:
         lines = [line.rstrip() for line in fh]
